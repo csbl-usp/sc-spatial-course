@@ -9,53 +9,55 @@ subtitle: "The course was organized by Izabela Mamede, Marcela Ishihara, Victori
 
 ![From the “smoothie” to the individual ingredients and where they are in the tissue. Bulk RNA sequencing provides an average molecular profile across many cells, while single-cell transcriptomics allows us to distinguish individual cellular populations. Spatial omics goes one step further by revealing where these cells and molecular signals are located within the tissue.](images/bulk_sc_spatial.png)
 
+![From bulk RNA-seq to analyzing individual cells expression profiles and understanding the microenvironment. (source https://www.cas.org/resources/cas-insights/spatial-transcriptomics).](images/bulk_cells.png)
+
 Therefore, these technologies open the door to questions that were previously difficult or impossible to answer. Which immune cells are present in a tissue, and how do their states change during inflammation? Which cells are producing inflammatory signals, and which cells are responding to them? How do immune cells interact with epithelial, stromal, or other tissue cells? And where do these interactions occur within the tissue?
 
-At the same time, working with single-cell and spatial data can feel overwhelming at first. Datasets can be large and complex, terminology can be unfamiliar, and analyses often involve specialized computational tools. This course is designed to make these technologies more approachable. We will start by exploring user-friendly tools that allow you to interact with single-cell and spatial data without writing code. We will then move into reproducible analysis with R and Python, before exploring how AI can help us write, test, and improve analytical workflows.
+At the same time, working with single-cell and spatial data can feel overwhelming at first. Datasets can be large and complex, terminology can be unfamiliar, and analyses often involve specialized computational tools or programming skills. This course is designed to make these technologies more approachable. We will start by exploring user-friendly tools that allow you to interact with single-cell and spatial data without writing code. We will then move into reproducible analysis with R and Python, before exploring how AI can help us write, test, and improve analytical workflows.
 
-## What you will learn
+## What are these technologies, after all?
 
-The course is organized into three progressive classes:
+Before we start exploring the tools and analyses, let's take a moment to understand what **single-cell and spatial transcriptomics** actually measure and why they are so useful.
 
-::: {.columns}
+### Single-cell transcriptomics
 
-::: {.column width="33%"}
+In a traditional bulk RNA-seq experiment, RNA is collected from a large population of cells and measured together. The resulting expression profile represents an **average across all of those cells**. This can be useful, but it can also hide important biological differences. Imagine a tissue containing immune cells, epithelial cells, fibroblasts, and endothelial cells. If all of their RNA is mixed together, we can see which genes are expressed in the tissue overall—but we may not know **which cells are expressing those genes**. Single-cell transcriptomics changes this by separating the sample into individual cells—or, more precisely, individual cell-derived measurements—and profiling their gene expression separately.
 
-### Class 1
+Instead of asking:
 
-**Explore**
+> *What genes are expressed in this tissue?*
 
-Learn the concepts behind single-cell and spatial transcriptomics and explore real datasets using user-friendly web-based tools — without writing code.
+we can begin to ask:
 
-[Go to Class 1 →](classes/class-01.qmd)
+> **Which cells are present, what are they expressing, and how do their molecular states differ?**
 
-:::
+This is particularly powerful for studying **immune responses and inflammation**. A tissue that appears to have a strong inflammatory response may contain several different immune populations, each with distinct roles. Single-cell data can help us distinguish these populations and explore their molecular states—for example, identifying activated macrophages, different T-cell states, or inflammatory signaling programs.
 
-::: {.column width="33%"}
+### Spatial transcriptomics
 
-### Class 2
+Single-cell transcriptomics gives us detailed information about what cells are doing, but in many experiments we lose an important piece of information: where those cells were located within the tissue. This spatial context is particularly important when studying inflammation, where cellular behavior is strongly influenced by the local microenvironment. Immune cells, stromal cells, epithelial cells, and other cell types can occupy distinct tissue niches and interact with one another through localized signaling, cell–cell contacts, and gradients of cytokines and other molecular factors. Knowing where cells are located therefore allows us to understand not only which genes and pathways are active, but also where inflammatory processes are occurring and how neighboring cells contribute to or respond to them. Preserving spatial information can reveal localized molecular processes, identify inflammatory niches, and help uncover interactions between different cell populations that may be missed when tissue architecture is lost. Spatial transcriptomics addresses this by measuring gene expression while preserving information about its **spatial location**.
 
-**Analyze**
+This allows us to ask questions such as:
 
-Open the "black box" and run a complete analysis pipeline using **R and Python**, including quality control, normalization, clustering, annotation, and functional analysis.
+> **Where are inflammatory cells located?**
 
-[Go to Class 2 →](classes/class-02.qmd)
+> **Which regions of a tissue show inflammatory activity?**
 
-:::
+> **Are immune cells located close to the cells they may be interacting with?**
 
-::: {.column width="33%"}
+> **Do particular cellular states occur in specific tissue structures or microenvironments?**
 
-### Class 3
+In other words, spatial transcriptomics allows us to connect **molecular identity with tissue organization**.
 
-**Extend**
+### Putting the pieces together
 
-Use **AI as a computational copilot** to explore additional analyses, write and debug code, and critically evaluate new analytical approaches.
+Single-cell and spatial transcriptomics therefore provide complementary perspectives:
 
-[Go to Class 3 →](classes/class-03.qmd)
+- **Single-cell:** *Who is there, and what are they doing?*
+- **Spatial:** *Where are they, and what is happening around them?*
 
-:::
+Together, these technologies allow us to move beyond simply describing which genes are expressed. Single-cell and spatial transcriptomics approaches provide complementary perspectives on tissue biology: single-cell methods can provide high-resolution characterization of individual cell populations and their transcriptional states, while spatial methods preserve information about where those cells and molecular programs are located within the tissue. Importantly, not all spatial transcriptomic technologies resolve individual cells, and different approaches vary in their spatial resolution, molecular detection strategies, and whether they rely on targeted, probe-based measurements or untargeted sequencing. By integrating these complementary views, we can begin to understand which cells are involved, how their states change, how they communicate, and where these processes occur within a tissue. This is particularly valuable in inflammation, where cellular states and molecular interactions are often shaped by their local microenvironment and spatial organization.
 
-:::
 
 ## The course at a glance
 
