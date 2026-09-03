@@ -1,3 +1,6 @@
+project:
+  type: website
+
 website:
   title: "Single-Cell & Spatial Transcriptomics"
 
@@ -14,6 +17,7 @@ website:
             text: "Class 2 — Reproducible Analysis"
           - href: classes/class-03.qmd
             text: "Class 3 — AI-Assisted Analysis"
+
 
 format:
   html:
