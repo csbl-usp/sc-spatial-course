@@ -1,4 +1,0 @@
----
-title: "Class 1 — User-Friendly Tools for Single-Cell and Spatial Transcriptomics"
-subtitle: "Exploring biological data without writing code"
----
