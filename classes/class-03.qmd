@@ -10,7 +10,7 @@ In single-cell and spatial transcriptomics, a single experiment can generate exp
 
 Artificial intelligence, and more specifically large language models (LLMs), have entered this space from two directions at once. On one side, purpose-built generative models trained directly on single-cell and spatial data (e.g., scGPT, deepGPS, MIDAS, MultiVI, SpatialScope, DeepTalk) are being used to annotate cell types, impute missing values, integrate modalities, and infer spatial gene expression at resolutions that were previously unreachable (Simizo et al., 2026). On the other side, general-purpose conversational LLMs such as ChatGPT are being adopted as everyday assistants for coding, data cleaning, writing, and even hypothesis generation in computational biology labs (Lubiana et al., 2023).
 
-![Range of AI applications in cell biology.](../images/simizo_ai.png)
+![Range of AI applications in cell biology (source: Simizo et al., 2026).](../images/simizo_ai.png)
 
 This course is concerned with both fronts, but this introduction focuses on setting the stage: what LLMs can realistically do for you in this domain, what they cannot be trusted to do, and how to use them so that the "goods" outweigh the "bads."
 
