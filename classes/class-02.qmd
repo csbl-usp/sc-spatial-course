@@ -218,3 +218,237 @@ The shared failure of both: they use only nuclear position, ignoring the transcr
 ## 8. Tools reference
 
 - [Spatial_transcriptomics_tools](https://github.com/p-gueguen/Spatial_transcriptomics_tools) — curated list of tools for spatial transcriptomics analysis.
+
+
+## Introduction to Single-cell Transcriptomics
+
+# Learning objectives
+
+By the end of this class, you should be able to:
+
+- Recognize the main steps of single-cell and spatial transcriptomics analysis.
+- Identify commonly used packages in R and Python.
+- Understand which analytical problem is addressed at each step.
+- Find reliable tutorials and best-practice recommendations for further study.
+
+# One workflow, two ecosystems
+
+R and Python provide complementary ecosystems for single-cell and spatial transcriptomics. Although package names and data structures differ, the underlying analytical workflow is largely the same.
+
+| R ecosystem | Python ecosystem |
+|---|---|
+| Seurat and Bioconductor | Scanpy and scverse |
+| `Seurat` or `SingleCellExperiment` objects | `AnnData` objects |
+| Extensive statistical and visualization packages | Scalable workflows and machine-learning integration |
+
+The choice of language should be guided by the biological question, the required methods, dataset size, available computing resources, and the experience of the research team.
+
+# Single-cell RNA-seq analysis
+
+A typical single-cell RNA-seq workflow transforms a gene-by-cell count matrix into biologically interpretable cell populations:
+
+**Data import → Quality control → Normalization → Highly variable gene selection → Dimensionality reduction → Clustering → Cell-type annotation**
+
+## 1. Data import
+
+Single-cell analysis usually starts from a gene-by-cell matrix containing raw or filtered counts. Common inputs include Cell Ranger output directories, Matrix Market files (`.mtx`), HDF5 files (`.h5`), and processed `Seurat`, `SingleCellExperiment`, or `AnnData` objects.
+
+| Task | R | Python |
+|---|---|---|
+| Read a 10x directory | `Seurat::Read10X()` | `scanpy.read_10x_mtx()` |
+| Read a 10x HDF5 file | `Seurat::Read10X_h5()` | `scanpy.read_10x_h5()` |
+| Main data structure | `Seurat` / `SingleCellExperiment` | `AnnData` |
+| Common exchange formats | `.h5Seurat`, `.h5ad` | `.h5ad`, `.zarr` |
+
+### R example
+
+```{r}
+#| eval: false
+
+library(Seurat)
+
+counts <- Read10X("filtered_feature_bc_matrix/")
+seu <- CreateSeuratObject(counts = counts)
+```
+
+### Python example
+
+```{python}
+#| eval: false
+
+import scanpy as sc
+
+adata = sc.read_10x_mtx(
+    "filtered_feature_bc_matrix/",
+    var_names="gene_symbols"
+)
+```
+
+## 2. Quality control
+
+Quality control aims to remove empty droplets, damaged or dying cells, multiplets, and other technical artifacts before downstream analysis.
+
+Frequently inspected cell-level metrics include:
+
+- Total counts per cell.
+- Number of detected genes per cell.
+- Percentage of mitochondrial reads.
+- Additional tissue-specific metrics, such as ribosomal or hemoglobin gene expression.
+
+Thresholds should be adapted to the tissue, protocol, sequencing depth, and expected cell populations. Fixed universal cutoffs may remove biologically relevant cells or retain technical artifacts.
+
+| Analytical task | R | Python |
+|---|---|---|
+| Calculate and visualize QC metrics | `Seurat`, `scater` | `Scanpy` |
+| Identify empty droplets | `DropletUtils::emptyDrops()` | `CellBender` |
+| Estimate ambient RNA contamination | `SoupX`, `DecontX` | `CellBender` |
+| Detect doublets | `DoubletFinder`, `scDblFinder` | `Scrublet`, `SOLO` |
+
+::: {.callout-important}
+A high mitochondrial percentage or an unusually large number of detected genes is a warning signal, not an automatic reason to discard a cell. QC distributions should be evaluated for each dataset—and often for each sample.
+:::
+
+## 3. Normalization
+
+Cells differ in sequencing depth, library size, and RNA capture efficiency. Normalization reduces these technical differences while preserving meaningful biological variation.
+
+| Strategy | R | Python |
+|---|---|---|
+| Library-size normalization and log transformation | `Seurat::NormalizeData()` | `scanpy.pp.normalize_total()` followed by `scanpy.pp.log1p()` |
+| Variance-stabilizing model | `Seurat::SCTransform()` | Pearson-residual-based methods |
+| Deep generative model | — | `scvi-tools` |
+
+### R example
+
+```{r}
+#| eval: false
+
+seu <- NormalizeData(seu)
+```
+
+### Python example
+
+```{python}
+#| eval: false
+
+sc.pp.normalize_total(adata, target_sum=1e4)
+sc.pp.log1p(adata)
+```
+
+The appropriate strategy depends on the downstream analysis. Raw counts should be preserved because some statistical methods require them.
+
+## 4. Highly variable gene selection
+
+Not every detected gene is informative for distinguishing cellular states. Highly variable genes show greater cell-to-cell variation than expected from their average expression and are commonly used for dimensionality reduction and clustering.
+
+| R | Python |
+|---|---|
+| `Seurat::FindVariableFeatures()` | `scanpy.pp.highly_variable_genes()` |
+| `scran::modelGeneVar()` | Scanpy implementations of commonly used selection methods |
+
+### R example
+
+```{r}
+#| eval: false
+
+seu <- FindVariableFeatures(
+    seu,
+    selection.method = "vst",
+    nfeatures = 2000
+)
+```
+
+### Python example
+
+```{python}
+#| eval: false
+
+sc.pp.highly_variable_genes(
+    adata,
+    n_top_genes=2000
+)
+```
+
+Highly expressed genes are not necessarily highly variable genes. Feature selection focuses the analysis on genes that best describe differences among cells.
+
+## 5. Dimensionality reduction
+
+Single-cell datasets contain thousands of gene-expression dimensions. Dimensionality-reduction methods summarize this information using a smaller number of components.
+
+| Method | Main purpose | R | Python |
+|---|---|---|---|
+| PCA | Summarize major sources of expression variation | `Seurat::RunPCA()` | `scanpy.tl.pca()` |
+| UMAP | Visualize local and global cell relationships | `Seurat::RunUMAP()` | `scanpy.tl.umap()` |
+| t-SNE | Visualize local cell relationships | `Seurat::RunTSNE()` | `scanpy.tl.tsne()` |
+
+PCA is commonly used to construct the neighborhood graph and perform clustering. UMAP and t-SNE are primarily visualization methods.
+
+::: {.callout-warning}
+UMAP coordinates are visual representations, not direct biological measurements. Cluster size, shape, separation, and distance should not be overinterpreted without additional evidence.
+:::
+
+## 6. Graph construction and clustering
+
+Cells are connected to transcriptionally similar neighbors to construct a graph. Community-detection algorithms then divide this graph into clusters.
+
+| Task | R | Python |
+|---|---|---|
+| Construct the neighbor graph | `Seurat::FindNeighbors()` | `scanpy.pp.neighbors()` |
+| Leiden clustering | `Seurat::FindClusters()` | `scanpy.tl.leiden()` |
+| Identify cluster markers | `Seurat::FindAllMarkers()` | `scanpy.tl.rank_genes_groups()` |
+
+The number and composition of clusters depend on choices such as the number of principal components, neighborhood size, integration strategy, and clustering resolution.
+
+::: {.callout-important}
+A cluster is a computational result—not automatically a cell type. Clusters must be interpreted and biologically validated.
+:::
+
+## 7. Cell-type annotation
+
+Cell-type annotation assigns biological identities to computationally defined cells or clusters. Strong annotations combine multiple sources of evidence.
+
+### Marker-based annotation
+
+- Examine canonical and differentially expressed markers.
+- Combine positive and negative marker evidence.
+- Inspect marker co-expression rather than relying on a single gene.
+- Consider tissue, disease, developmental stage, and experimental context.
+
+### Reference-based annotation
+
+| R | Python |
+|---|---|
+| `SingleR` | `CellTypist` |
+| `Azimuth` | `scArches` |
+| Seurat label transfer | `scvi-tools` |
+
+Automated annotations depend on the quality and biological relevance of the reference. Predicted labels should therefore be treated as hypotheses and validated using marker expression and domain knowledge.
+
+## Summary of the single-cell workflow
+
+| Step | Main question |
+|---|---|
+| Data import | What data and metadata are available? |
+| Quality control | Which droplets represent reliable cells? |
+| Normalization | How can technical differences among cells be reduced? |
+| Variable gene selection | Which genes capture informative variation? |
+| Dimensionality reduction | What are the major expression patterns? |
+| Clustering | Which cells have similar transcriptional profiles? |
+| Annotation | What biological identities are supported by the evidence? |
+
+# Spatial transcriptomics analysis
+
+<!-- Spatial transcriptomics section to be developed by Dri. -->
+
+# Recommended resources
+
+- [Single-cell best practices](https://www.sc-best-practices.org/)
+- [Orchestrating Single-Cell Analysis with Bioconductor](https://bioconductor.org/books/release/OSCA/)
+- [Orchestrating Spatial Transcriptomics Analysis with Bioconductor](https://bioconductor.org/books/release/OSTA/)
+- [Seurat guided clustering tutorial](https://satijalab.org/seurat/articles/pbmc3k_tutorial.html)
+- [Scanpy tutorials](https://scanpy.readthedocs.io/en/stable/tutorials/)
+- [scverse tutorials](https://scverse.org/learn/)
+
+# Take-home message
+
+R and Python provide different but complementary implementations of the same analytical workflow. A robust analysis depends more on informed methodological choices, transparent reporting, and biological validation than on the programming language itself.
