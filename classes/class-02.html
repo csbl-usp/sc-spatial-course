@@ -153,6 +153,39 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#cell-type-annotation" id="toc-cell-type-annotation" class="nav-link" data-scroll-target="#cell-type-annotation">7.4 Cell type annotation</a></li>
   </ul></li>
   <li><a href="#tools-reference" id="toc-tools-reference" class="nav-link" data-scroll-target="#tools-reference">8. Tools reference</a></li>
+  <li><a href="#introduction-to-single-cell-transcriptomics" id="toc-introduction-to-single-cell-transcriptomics" class="nav-link" data-scroll-target="#introduction-to-single-cell-transcriptomics">Introduction to Single-cell Transcriptomics</a></li>
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives">Learning objectives</a></li>
+  <li><a href="#one-workflow-two-ecosystems" id="toc-one-workflow-two-ecosystems" class="nav-link" data-scroll-target="#one-workflow-two-ecosystems">One workflow, two ecosystems</a></li>
+  <li><a href="#single-cell-rna-seq-analysis" id="toc-single-cell-rna-seq-analysis" class="nav-link" data-scroll-target="#single-cell-rna-seq-analysis">Single-cell RNA-seq analysis</a>
+  <ul class="collapse">
+  <li><a href="#data-import" id="toc-data-import" class="nav-link" data-scroll-target="#data-import">1. Data import</a>
+  <ul class="collapse">
+  <li><a href="#r-example" id="toc-r-example" class="nav-link" data-scroll-target="#r-example">R example</a></li>
+  <li><a href="#python-example" id="toc-python-example" class="nav-link" data-scroll-target="#python-example">Python example</a></li>
+  </ul></li>
+  <li><a href="#quality-control" id="toc-quality-control" class="nav-link" data-scroll-target="#quality-control">2. Quality control</a></li>
+  <li><a href="#normalization" id="toc-normalization" class="nav-link" data-scroll-target="#normalization">3. Normalization</a>
+  <ul class="collapse">
+  <li><a href="#r-example-1" id="toc-r-example-1" class="nav-link" data-scroll-target="#r-example-1">R example</a></li>
+  <li><a href="#python-example-1" id="toc-python-example-1" class="nav-link" data-scroll-target="#python-example-1">Python example</a></li>
+  </ul></li>
+  <li><a href="#highly-variable-gene-selection" id="toc-highly-variable-gene-selection" class="nav-link" data-scroll-target="#highly-variable-gene-selection">4. Highly variable gene selection</a>
+  <ul class="collapse">
+  <li><a href="#r-example-2" id="toc-r-example-2" class="nav-link" data-scroll-target="#r-example-2">R example</a></li>
+  <li><a href="#python-example-2" id="toc-python-example-2" class="nav-link" data-scroll-target="#python-example-2">Python example</a></li>
+  </ul></li>
+  <li><a href="#dimensionality-reduction" id="toc-dimensionality-reduction" class="nav-link" data-scroll-target="#dimensionality-reduction">5. Dimensionality reduction</a></li>
+  <li><a href="#graph-construction-and-clustering" id="toc-graph-construction-and-clustering" class="nav-link" data-scroll-target="#graph-construction-and-clustering">6. Graph construction and clustering</a></li>
+  <li><a href="#cell-type-annotation-1" id="toc-cell-type-annotation-1" class="nav-link" data-scroll-target="#cell-type-annotation-1">7. Cell-type annotation</a>
+  <ul class="collapse">
+  <li><a href="#marker-based-annotation" id="toc-marker-based-annotation" class="nav-link" data-scroll-target="#marker-based-annotation">Marker-based annotation</a></li>
+  <li><a href="#reference-based-annotation" id="toc-reference-based-annotation" class="nav-link" data-scroll-target="#reference-based-annotation">Reference-based annotation</a></li>
+  </ul></li>
+  <li><a href="#summary-of-the-single-cell-workflow" id="toc-summary-of-the-single-cell-workflow" class="nav-link" data-scroll-target="#summary-of-the-single-cell-workflow">Summary of the single-cell workflow</a></li>
+  </ul></li>
+  <li><a href="#spatial-transcriptomics-analysis" id="toc-spatial-transcriptomics-analysis" class="nav-link" data-scroll-target="#spatial-transcriptomics-analysis">Spatial transcriptomics analysis</a></li>
+  <li><a href="#recommended-resources" id="toc-recommended-resources" class="nav-link" data-scroll-target="#recommended-resources">Recommended resources</a></li>
+  <li><a href="#take-home-message" id="toc-take-home-message" class="nav-link" data-scroll-target="#take-home-message">Take-home message</a></li>
   </ul>
 </nav>
     </div>
@@ -955,6 +988,471 @@ ul.task-list li input[type="checkbox"] {
 <ul>
 <li><a href="https://github.com/p-gueguen/Spatial_transcriptomics_tools">Spatial_transcriptomics_tools</a> — curated list of tools for spatial transcriptomics analysis.</li>
 </ul>
+</section>
+<section id="introduction-to-single-cell-transcriptomics" class="level2">
+<h2 class="anchored" data-anchor-id="introduction-to-single-cell-transcriptomics">Introduction to Single-cell Transcriptomics</h2>
+</section>
+<section id="learning-objectives" class="level1">
+<h1>Learning objectives</h1>
+<p>By the end of this class, you should be able to:</p>
+<ul>
+<li>Recognize the main steps of single-cell and spatial transcriptomics analysis.</li>
+<li>Identify commonly used packages in R and Python.</li>
+<li>Understand which analytical problem is addressed at each step.</li>
+<li>Find reliable tutorials and best-practice recommendations for further study.</li>
+</ul>
+</section>
+<section id="one-workflow-two-ecosystems" class="level1">
+<h1>One workflow, two ecosystems</h1>
+<p>R and Python provide complementary ecosystems for single-cell and spatial transcriptomics. Although package names and data structures differ, the underlying analytical workflow is largely the same.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>R ecosystem</th>
+<th>Python ecosystem</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Seurat and Bioconductor</td>
+<td>Scanpy and scverse</td>
+</tr>
+<tr class="even">
+<td><code>Seurat</code> or <code>SingleCellExperiment</code> objects</td>
+<td><code>AnnData</code> objects</td>
+</tr>
+<tr class="odd">
+<td>Extensive statistical and visualization packages</td>
+<td>Scalable workflows and machine-learning integration</td>
+</tr>
+</tbody>
+</table>
+<p>The choice of language should be guided by the biological question, the required methods, dataset size, available computing resources, and the experience of the research team.</p>
+</section>
+<section id="single-cell-rna-seq-analysis" class="level1">
+<h1>Single-cell RNA-seq analysis</h1>
+<p>A typical single-cell RNA-seq workflow transforms a gene-by-cell count matrix into biologically interpretable cell populations:</p>
+<p><strong>Data import → Quality control → Normalization → Highly variable gene selection → Dimensionality reduction → Clustering → Cell-type annotation</strong></p>
+<section id="data-import" class="level2">
+<h2 class="anchored" data-anchor-id="data-import">1. Data import</h2>
+<p>Single-cell analysis usually starts from a gene-by-cell matrix containing raw or filtered counts. Common inputs include Cell Ranger output directories, Matrix Market files (<code>.mtx</code>), HDF5 files (<code>.h5</code>), and processed <code>Seurat</code>, <code>SingleCellExperiment</code>, or <code>AnnData</code> objects.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Task</th>
+<th>R</th>
+<th>Python</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Read a 10x directory</td>
+<td><code>Seurat::Read10X()</code></td>
+<td><code>scanpy.read_10x_mtx()</code></td>
+</tr>
+<tr class="even">
+<td>Read a 10x HDF5 file</td>
+<td><code>Seurat::Read10X_h5()</code></td>
+<td><code>scanpy.read_10x_h5()</code></td>
+</tr>
+<tr class="odd">
+<td>Main data structure</td>
+<td><code>Seurat</code> / <code>SingleCellExperiment</code></td>
+<td><code>AnnData</code></td>
+</tr>
+<tr class="even">
+<td>Common exchange formats</td>
+<td><code>.h5Seurat</code>, <code>.h5ad</code></td>
+<td><code>.h5ad</code>, <code>.zarr</code></td>
+</tr>
+</tbody>
+</table>
+<section id="r-example" class="level3">
+<h3 class="anchored" data-anchor-id="r-example">R example</h3>
+<pre class="{r}"><code>
+library(Seurat)
+
+counts &lt;- Read10X("filtered_feature_bc_matrix/")
+seu &lt;- CreateSeuratObject(counts = counts)</code></pre>
+</section>
+<section id="python-example" class="level3">
+<h3 class="anchored" data-anchor-id="python-example">Python example</h3>
+<pre class="{python}"><code>
+import scanpy as sc
+
+adata = sc.read_10x_mtx(
+    "filtered_feature_bc_matrix/",
+    var_names="gene_symbols"
+)</code></pre>
+</section>
+</section>
+<section id="quality-control" class="level2">
+<h2 class="anchored" data-anchor-id="quality-control">2. Quality control</h2>
+<p>Quality control aims to remove empty droplets, damaged or dying cells, multiplets, and other technical artifacts before downstream analysis.</p>
+<p>Frequently inspected cell-level metrics include:</p>
+<ul>
+<li>Total counts per cell.</li>
+<li>Number of detected genes per cell.</li>
+<li>Percentage of mitochondrial reads.</li>
+<li>Additional tissue-specific metrics, such as ribosomal or hemoglobin gene expression.</li>
+</ul>
+<p>Thresholds should be adapted to the tissue, protocol, sequencing depth, and expected cell populations. Fixed universal cutoffs may remove biologically relevant cells or retain technical artifacts.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Analytical task</th>
+<th>R</th>
+<th>Python</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Calculate and visualize QC metrics</td>
+<td><code>Seurat</code>, <code>scater</code></td>
+<td><code>Scanpy</code></td>
+</tr>
+<tr class="even">
+<td>Identify empty droplets</td>
+<td><code>DropletUtils::emptyDrops()</code></td>
+<td><code>CellBender</code></td>
+</tr>
+<tr class="odd">
+<td>Estimate ambient RNA contamination</td>
+<td><code>SoupX</code>, <code>DecontX</code></td>
+<td><code>CellBender</code></td>
+</tr>
+<tr class="even">
+<td>Detect doublets</td>
+<td><code>DoubletFinder</code>, <code>scDblFinder</code></td>
+<td><code>Scrublet</code>, <code>SOLO</code></td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A high mitochondrial percentage or an unusually large number of detected genes is a warning signal, not an automatic reason to discard a cell. QC distributions should be evaluated for each dataset—and often for each sample.</p>
+</div>
+</div>
+</section>
+<section id="normalization" class="level2">
+<h2 class="anchored" data-anchor-id="normalization">3. Normalization</h2>
+<p>Cells differ in sequencing depth, library size, and RNA capture efficiency. Normalization reduces these technical differences while preserving meaningful biological variation.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Strategy</th>
+<th>R</th>
+<th>Python</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Library-size normalization and log transformation</td>
+<td><code>Seurat::NormalizeData()</code></td>
+<td><code>scanpy.pp.normalize_total()</code> followed by <code>scanpy.pp.log1p()</code></td>
+</tr>
+<tr class="even">
+<td>Variance-stabilizing model</td>
+<td><code>Seurat::SCTransform()</code></td>
+<td>Pearson-residual-based methods</td>
+</tr>
+<tr class="odd">
+<td>Deep generative model</td>
+<td>—</td>
+<td><code>scvi-tools</code></td>
+</tr>
+</tbody>
+</table>
+<section id="r-example-1" class="level3">
+<h3 class="anchored" data-anchor-id="r-example-1">R example</h3>
+<pre class="{r}"><code>
+seu &lt;- NormalizeData(seu)</code></pre>
+</section>
+<section id="python-example-1" class="level3">
+<h3 class="anchored" data-anchor-id="python-example-1">Python example</h3>
+<pre class="{python}"><code>
+sc.pp.normalize_total(adata, target_sum=1e4)
+sc.pp.log1p(adata)</code></pre>
+<p>The appropriate strategy depends on the downstream analysis. Raw counts should be preserved because some statistical methods require them.</p>
+</section>
+</section>
+<section id="highly-variable-gene-selection" class="level2">
+<h2 class="anchored" data-anchor-id="highly-variable-gene-selection">4. Highly variable gene selection</h2>
+<p>Not every detected gene is informative for distinguishing cellular states. Highly variable genes show greater cell-to-cell variation than expected from their average expression and are commonly used for dimensionality reduction and clustering.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>R</th>
+<th>Python</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>Seurat::FindVariableFeatures()</code></td>
+<td><code>scanpy.pp.highly_variable_genes()</code></td>
+</tr>
+<tr class="even">
+<td><code>scran::modelGeneVar()</code></td>
+<td>Scanpy implementations of commonly used selection methods</td>
+</tr>
+</tbody>
+</table>
+<section id="r-example-2" class="level3">
+<h3 class="anchored" data-anchor-id="r-example-2">R example</h3>
+<pre class="{r}"><code>
+seu &lt;- FindVariableFeatures(
+    seu,
+    selection.method = "vst",
+    nfeatures = 2000
+)</code></pre>
+</section>
+<section id="python-example-2" class="level3">
+<h3 class="anchored" data-anchor-id="python-example-2">Python example</h3>
+<pre class="{python}"><code>
+sc.pp.highly_variable_genes(
+    adata,
+    n_top_genes=2000
+)</code></pre>
+<p>Highly expressed genes are not necessarily highly variable genes. Feature selection focuses the analysis on genes that best describe differences among cells.</p>
+</section>
+</section>
+<section id="dimensionality-reduction" class="level2">
+<h2 class="anchored" data-anchor-id="dimensionality-reduction">5. Dimensionality reduction</h2>
+<p>Single-cell datasets contain thousands of gene-expression dimensions. Dimensionality-reduction methods summarize this information using a smaller number of components.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Method</th>
+<th>Main purpose</th>
+<th>R</th>
+<th>Python</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>PCA</td>
+<td>Summarize major sources of expression variation</td>
+<td><code>Seurat::RunPCA()</code></td>
+<td><code>scanpy.tl.pca()</code></td>
+</tr>
+<tr class="even">
+<td>UMAP</td>
+<td>Visualize local and global cell relationships</td>
+<td><code>Seurat::RunUMAP()</code></td>
+<td><code>scanpy.tl.umap()</code></td>
+</tr>
+<tr class="odd">
+<td>t-SNE</td>
+<td>Visualize local cell relationships</td>
+<td><code>Seurat::RunTSNE()</code></td>
+<td><code>scanpy.tl.tsne()</code></td>
+</tr>
+</tbody>
+</table>
+<p>PCA is commonly used to construct the neighborhood graph and perform clustering. UMAP and t-SNE are primarily visualization methods.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>UMAP coordinates are visual representations, not direct biological measurements. Cluster size, shape, separation, and distance should not be overinterpreted without additional evidence.</p>
+</div>
+</div>
+</section>
+<section id="graph-construction-and-clustering" class="level2">
+<h2 class="anchored" data-anchor-id="graph-construction-and-clustering">6. Graph construction and clustering</h2>
+<p>Cells are connected to transcriptionally similar neighbors to construct a graph. Community-detection algorithms then divide this graph into clusters.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Task</th>
+<th>R</th>
+<th>Python</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Construct the neighbor graph</td>
+<td><code>Seurat::FindNeighbors()</code></td>
+<td><code>scanpy.pp.neighbors()</code></td>
+</tr>
+<tr class="even">
+<td>Leiden clustering</td>
+<td><code>Seurat::FindClusters()</code></td>
+<td><code>scanpy.tl.leiden()</code></td>
+</tr>
+<tr class="odd">
+<td>Identify cluster markers</td>
+<td><code>Seurat::FindAllMarkers()</code></td>
+<td><code>scanpy.tl.rank_genes_groups()</code></td>
+</tr>
+</tbody>
+</table>
+<p>The number and composition of clusters depend on choices such as the number of principal components, neighborhood size, integration strategy, and clustering resolution.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A cluster is a computational result—not automatically a cell type. Clusters must be interpreted and biologically validated.</p>
+</div>
+</div>
+</section>
+<section id="cell-type-annotation-1" class="level2">
+<h2 class="anchored" data-anchor-id="cell-type-annotation-1">7. Cell-type annotation</h2>
+<p>Cell-type annotation assigns biological identities to computationally defined cells or clusters. Strong annotations combine multiple sources of evidence.</p>
+<section id="marker-based-annotation" class="level3">
+<h3 class="anchored" data-anchor-id="marker-based-annotation">Marker-based annotation</h3>
+<ul>
+<li>Examine canonical and differentially expressed markers.</li>
+<li>Combine positive and negative marker evidence.</li>
+<li>Inspect marker co-expression rather than relying on a single gene.</li>
+<li>Consider tissue, disease, developmental stage, and experimental context.</li>
+</ul>
+</section>
+<section id="reference-based-annotation" class="level3">
+<h3 class="anchored" data-anchor-id="reference-based-annotation">Reference-based annotation</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>R</th>
+<th>Python</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>SingleR</code></td>
+<td><code>CellTypist</code></td>
+</tr>
+<tr class="even">
+<td><code>Azimuth</code></td>
+<td><code>scArches</code></td>
+</tr>
+<tr class="odd">
+<td>Seurat label transfer</td>
+<td><code>scvi-tools</code></td>
+</tr>
+</tbody>
+</table>
+<p>Automated annotations depend on the quality and biological relevance of the reference. Predicted labels should therefore be treated as hypotheses and validated using marker expression and domain knowledge.</p>
+</section>
+</section>
+<section id="summary-of-the-single-cell-workflow" class="level2">
+<h2 class="anchored" data-anchor-id="summary-of-the-single-cell-workflow">Summary of the single-cell workflow</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Step</th>
+<th>Main question</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Data import</td>
+<td>What data and metadata are available?</td>
+</tr>
+<tr class="even">
+<td>Quality control</td>
+<td>Which droplets represent reliable cells?</td>
+</tr>
+<tr class="odd">
+<td>Normalization</td>
+<td>How can technical differences among cells be reduced?</td>
+</tr>
+<tr class="even">
+<td>Variable gene selection</td>
+<td>Which genes capture informative variation?</td>
+</tr>
+<tr class="odd">
+<td>Dimensionality reduction</td>
+<td>What are the major expression patterns?</td>
+</tr>
+<tr class="even">
+<td>Clustering</td>
+<td>Which cells have similar transcriptional profiles?</td>
+</tr>
+<tr class="odd">
+<td>Annotation</td>
+<td>What biological identities are supported by the evidence?</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="spatial-transcriptomics-analysis" class="level1">
+<h1>Spatial transcriptomics analysis</h1>
+<!-- Spatial transcriptomics section to be developed by Dri. -->
+</section>
+<section id="recommended-resources" class="level1">
+<h1>Recommended resources</h1>
+<ul>
+<li><a href="https://www.sc-best-practices.org/">Single-cell best practices</a></li>
+<li><a href="https://bioconductor.org/books/release/OSCA/">Orchestrating Single-Cell Analysis with Bioconductor</a></li>
+<li><a href="https://bioconductor.org/books/release/OSTA/">Orchestrating Spatial Transcriptomics Analysis with Bioconductor</a></li>
+<li><a href="https://satijalab.org/seurat/articles/pbmc3k_tutorial.html">Seurat guided clustering tutorial</a></li>
+<li><a href="https://scanpy.readthedocs.io/en/stable/tutorials/">Scanpy tutorials</a></li>
+<li><a href="https://scverse.org/learn/">scverse tutorials</a></li>
+</ul>
+</section>
+<section id="take-home-message" class="level1">
+<h1>Take-home message</h1>
+<p>R and Python provide different but complementary implementations of the same analytical workflow. A robust analysis depends more on informed methodological choices, transparent reporting, and biological validation than on the programming language itself.</p>
 
 
 </section>
