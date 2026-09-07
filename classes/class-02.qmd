@@ -263,7 +263,6 @@ Single-cell analysis usually starts from a gene-by-cell matrix containing raw or
 ### R example
 
 ```{r}
-#| eval: false
 
 library(Seurat)
 
@@ -274,7 +273,6 @@ seu <- CreateSeuratObject(counts = counts)
 ### Python example
 
 ```{python}
-#| eval: false
 
 import scanpy as sc
 
@@ -321,7 +319,6 @@ Cells differ in sequencing depth, library size, and RNA capture efficiency. Norm
 ### R example
 
 ```{r}
-#| eval: false
 
 seu <- NormalizeData(seu)
 ```
@@ -329,7 +326,6 @@ seu <- NormalizeData(seu)
 ### Python example
 
 ```{python}
-#| eval: false
 
 sc.pp.normalize_total(adata, target_sum=1e4)
 sc.pp.log1p(adata)
@@ -349,7 +345,6 @@ Not every detected gene is informative for distinguishing cellular states. Highl
 ### R example
 
 ```{r}
-#| eval: false
 
 seu <- FindVariableFeatures(
     seu,
@@ -361,7 +356,6 @@ seu <- FindVariableFeatures(
 ### Python example
 
 ```{python}
-#| eval: false
 
 sc.pp.highly_variable_genes(
     adata,
