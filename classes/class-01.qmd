@@ -2,3 +2,269 @@
 title: "Class 1 — User-Friendly Tools for Single-Cell and Spatial Transcriptomics"
 subtitle: "Exploring biological data without writing code"
 ---
+
+# Welcome
+
+Single-cell datasets may contain thousands—or even millions—of individual cellular profiles. Complete analyses often require R or Python, but interactive websites allow us to explore many biological questions without writing code.
+
+In this activity, we will learn where single-cell data are stored, what an interactive dataset shows, and how to explore cells, genes, tissues, and experimental conditions using online resources.
+
+::: {.callout-note}
+During the class, we will explore only a few representative platforms. Additional resources are provided at the end for self-paced exploration.
+:::
+
+# Learning objectives
+
+By the end of this activity, you should be able to:
+
+- Distinguish raw sequencing files from processed single-cell data.
+- Find public single-cell studies and their associated files.
+- Interpret cells, clusters, metadata, and gene expression in an interactive portal.
+- Use Single Cell Expression Atlas and CZ CELLxGENE Discover to investigate a biological question.
+- Recognize other useful resources for independent exploration.
+
+# Part I — Where can we find single-cell data?
+
+## From sequencing reads to an interactive atlas
+
+A single-cell RNA-seq study may provide data at several processing levels:
+
+**FASTQ files → Feature–barcode count matrix → Processed single-cell object → Interactive visualization**
+
+| Data level | Common formats | What it contains | Typical use |
+|---|---|---|---|
+| Raw sequencing data | `.fastq.gz` | Sequencing reads and quality scores | Reprocessing from the beginning |
+| Count matrix | `.h5`, `.mtx`, `.tsv` | Gene counts for each cellular barcode | Starting an R or Python workflow |
+| Processed object | `.h5ad`, `.rds`, `.h5Seurat`, `.loom` | Counts, metadata, embeddings, clusters, and annotations | Reusing an existing analysis |
+| Interactive portal | Web interface | Selected processed results | Rapid exploration without coding |
+
+In many 10x Genomics studies, Cell Ranger processes FASTQ files and generates a feature–barcode count matrix. In Class 2, we will see how these matrices can be analyzed using R or Python.
+
+## Repositories serve different purposes
+
+| Resource | What can we find? | Typical accessions |
+|---|---|---|
+| [GEO](https://www.ncbi.nlm.nih.gov/geo/) | Study descriptions, metadata, processed files, and links to raw data | `GSE`, `GSM` |
+| [SRA](https://www.ncbi.nlm.nih.gov/sra) | Raw high-throughput sequencing data | `SRP`, `SRS`, `SRR` |
+| [ArrayExpress/BioStudies](https://www.ebi.ac.uk/arrayexpress/) | Study metadata, protocols, and processed files | `E-MTAB` |
+| [ENA](https://www.ebi.ac.uk/ena/browser/home) | Raw nucleotide sequencing data | Study, sample, experiment, and run accessions |
+| [Human Cell Atlas Data Portal](https://data.humancellatlas.org/) | Human atlas datasets and associated files | Project-specific identifiers |
+
+::: {.callout-important}
+A repository is not necessarily an interactive analysis tool. GEO and ArrayExpress/BioStudies organize studies and files, while SRA and ENA primarily store raw sequencing data.
+:::
+
+## In-class example — Find the files behind a study
+
+We will open one study relevant to the course and identify:
+
+1. The study accession and biological question.
+2. The number and type of samples.
+3. The available metadata.
+4. The processed expression files.
+5. The link to the raw sequencing reads.
+
+### Questions to consider
+
+- Are FASTQ files available?
+- Is a count matrix available in `.h5` or `.mtx` format?
+- Are cell annotations and sample metadata provided?
+- Can we explore the results immediately, or must the data be processed first?
+
+# Part II — What does a single-cell dataset show?
+
+## Cells and genes
+
+A single-cell expression matrix contains:
+
+- **Rows:** genes or molecular features.
+- **Columns:** individual cells or cellular barcodes.
+- **Values:** the observed expression of each gene in each cell.
+
+Unlike bulk RNA-seq, single-cell RNA-seq can reveal heterogeneous populations and cellular states within the same sample.
+
+## Embeddings
+
+UMAP and t-SNE represent high-dimensional expression profiles in two dimensions. Each point usually represents one cell. Cells positioned close together tend to have similar expression profiles. However:
+
+- The axes do not represent individual genes.
+- Visual separation alone does not prove that two groups are different cell types.
+- Cluster shape, size, and distance are influenced by analytical parameters.
+
+## Clusters and cell types are not the same
+
+A **cluster** is a computational group of cells with similar expression profiles. A **cell-type label** is a biological interpretation supported by marker genes, reference data, and biological context.
+
+## Metadata give biological context
+
+Cells may be colored or grouped by cell type, cluster, tissue, donor, disease, treatment, age, sex, developmental stage, or sequencing technology.
+
+## Gene expression
+
+Interactive portals commonly display expression using color intensity on an embedding, violin plots, dot plots, or summaries across cell types and tissues.
+
+::: {.callout-tip}
+Start with a well-known marker: **CD3D** for T cells, **MS4A1** for B cells, **NKG7** for cytotoxic lymphocytes, or **LST1** for myeloid cells. Then examine whether the expression pattern agrees with the published labels.
+:::
+
+# Part III — Tools explored during the class
+
+## 1. Single Cell Expression Atlas
+
+[Open Single Cell Expression Atlas](https://www.ebi.ac.uk/gxa/sc/home)
+
+The EMBL-EBI Single Cell Expression Atlas is an open resource for exploring consistently processed single-cell gene-expression studies across multiple species.
+
+### Why start here?
+
+- Search by species, tissue, disease, or experimental condition.
+- Explore data from animals, plants, fungi, and protists.
+- Read the biological and experimental description of a study.
+- Visualize cell clusters and gene-expression patterns.
+- Download processed results.
+
+### Guided exploration
+
+1. Select an organism or biological topic.
+2. Open one experiment.
+3. Identify the tissue, experimental condition, technology, and number of cells.
+4. Inspect the embedding and available labels.
+5. Search for one marker gene.
+6. Compare its expression among cell populations.
+
+### Interpretation questions
+
+- What does each point represent?
+- What variable is used to color the cells?
+- Is the selected gene restricted to one population or broadly expressed?
+- Do the labels agree with the expression pattern?
+- Which metadata would be needed to compare biological groups?
+
+## 2. CZ CELLxGENE Discover
+
+[Open CZ CELLxGENE Discover](https://cellxgene.cziscience.com/)
+
+CZ CELLxGENE Discover provides curated and standardized single-cell datasets that can be searched, downloaded, and explored through an interactive no-code interface.
+
+### What can we explore?
+
+- Published embeddings and cell annotations.
+- Gene expression across cell types and tissues.
+- Metadata such as disease, donor, assay, and tissue.
+- Selected groups of cells and related datasets within a collection.
+- Differential-expression summaries when supported by the selected interface.
+
+### Guided exploration
+
+Choose one dataset and formulate a simple biological question, for example:
+
+> Which immune cell populations express **IFITM3** in this tissue?
+
+Then:
+
+1. Color the embedding by cell type.
+2. Inspect how many cell populations are represented.
+3. Search for the gene of interest.
+4. Identify the populations with the strongest expression.
+5. Change the metadata variable to tissue, donor, or disease when available.
+6. Write one biological observation and one limitation.
+
+::: {.callout-warning}
+An interactive visualization supports exploration and hypothesis generation. It does not automatically control for donor effects, batch effects, unequal sample sizes, or other sources of variation.
+:::
+
+# Part IV — Resources to explore at home
+
+The following resources extend the concepts introduced during class. They will not all be demonstrated live.
+
+## Explore published datasets
+
+### Broad Institute Single Cell Portal
+
+[Open the Broad Institute Single Cell Portal](https://singlecell.broadinstitute.org/)
+
+Use it to search publication-associated studies and inspect embeddings, annotations, gene expression, metadata, and available files.
+
+### Human Cell Atlas Data Portal
+
+[Open the Human Cell Atlas Data Portal](https://data.humancellatlas.org/)
+
+Use it to discover large human reference atlases and community-generated datasets.
+
+## Explore genes and tissues
+
+### Human Protein Atlas — Single Cell Resource
+
+[Open the Human Protein Atlas Single Cell Resource](https://www.proteinatlas.org/humanproteome/single+cell)
+
+Use it when your starting point is a gene. Explore its RNA expression across human tissues and annotated cell types and connect single-cell expression with tissue and protein information.
+
+## Investigate cell identities
+
+### Cell Annotation Platform
+
+[Open the Cell Annotation Platform](https://celltype.info/)
+
+Use it to inspect, review, and compare expert cell annotations across single-cell atlases.
+
+### PanglaoDB
+
+[Open PanglaoDB](https://panglaodb.se/)
+
+Use it to search for candidate marker genes, cell types, tissues, and single-cell studies. Marker lists must always be evaluated in the appropriate biological context.
+
+### CellTypist
+
+[Open CellTypist](https://www.celltypist.org/)
+
+CellTypist provides curated reference models and an automated framework for preliminary cell-type annotation, with a strong emphasis on immune populations.
+
+::: {.callout-warning}
+Automated labels are hypotheses, not final results. Validate predictions using marker expression, tissue context, reference relevance, and biological knowledge.
+:::
+
+# Optional take-home activity
+
+Choose a single-cell dataset related to your research interests.
+
+1. Find the study in GEO, ArrayExpress/BioStudies, or the Human Cell Atlas Data Portal.
+2. Determine whether raw or processed files are available.
+3. Look for the same or a related study in Single Cell Expression Atlas, CZ CELLxGENE Discover, or the Broad Single Cell Portal.
+4. Inspect the embedding and available metadata.
+5. Select one gene and examine its expression across cell populations.
+6. Use the Human Protein Atlas, Cell Annotation Platform, or PanglaoDB to investigate the expected pattern.
+7. Record one observation, one limitation, and one question that would require R or Python.
+
+# Quick guide — Which resource should I use?
+
+| If you want to... | Start with... |
+|---|---|
+| Download raw sequencing reads | SRA or ENA |
+| Find files associated with a publication | GEO or ArrayExpress/BioStudies |
+| Find large human atlas projects | Human Cell Atlas Data Portal |
+| Explore studies from multiple organisms | Single Cell Expression Atlas |
+| Explore standardized single-cell datasets | CZ CELLxGENE Discover |
+| Explore publication-associated datasets | Broad Single Cell Portal |
+| Investigate one gene across human tissues | Human Protein Atlas |
+| Compare cell labels and marker evidence | Cell Annotation Platform or PanglaoDB |
+| Obtain a preliminary automated annotation | CellTypist |
+
+# Take-home messages
+
+1. Public single-cell data exist at different processing levels, from FASTQ reads to interactive atlases.
+2. Repositories help us find data; interactive portals help us explore processed results.
+3. Single Cell Expression Atlas and CZ CELLxGENE Discover provide accessible starting points for no-code exploration.
+4. Metadata and biological context are essential for interpreting cells, clusters, and gene expression.
+5. Interactive analyses are valuable for exploration but do not replace reproducible statistical analysis.
+6. Questions requiring custom preprocessing, integration, or formal comparisons generally require R or Python.
+
+# Additional links
+
+- [Single Cell Expression Atlas](https://www.ebi.ac.uk/gxa/sc/home)
+- [CZ CELLxGENE Discover](https://cellxgene.cziscience.com/)
+- [Broad Institute Single Cell Portal](https://singlecell.broadinstitute.org/)
+- [Human Cell Atlas Data Portal](https://data.humancellatlas.org/)
+- [Human Protein Atlas — Single Cell Resource](https://www.proteinatlas.org/humanproteome/single+cell)
+- [Cell Annotation Platform](https://celltype.info/)
+- [PanglaoDB](https://panglaodb.se/)
+- [CellTypist](https://www.celltypist.org/)
