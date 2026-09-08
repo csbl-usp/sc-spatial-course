@@ -128,8 +128,68 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#welcome" id="toc-welcome" class="nav-link active" data-scroll-target="#welcome">Welcome</a></li>
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives">Learning objectives</a></li>
+  <li><a href="#part-i-where-can-we-find-single-cell-data" id="toc-part-i-where-can-we-find-single-cell-data" class="nav-link" data-scroll-target="#part-i-where-can-we-find-single-cell-data">Part I — Where can we find single-cell data?</a>
+  <ul class="collapse">
+  <li><a href="#from-sequencing-reads-to-an-interactive-atlas" id="toc-from-sequencing-reads-to-an-interactive-atlas" class="nav-link" data-scroll-target="#from-sequencing-reads-to-an-interactive-atlas">From sequencing reads to an interactive atlas</a></li>
+  <li><a href="#repositories-serve-different-purposes" id="toc-repositories-serve-different-purposes" class="nav-link" data-scroll-target="#repositories-serve-different-purposes">Repositories serve different purposes</a></li>
+  <li><a href="#in-class-example-find-the-files-behind-a-study" id="toc-in-class-example-find-the-files-behind-a-study" class="nav-link" data-scroll-target="#in-class-example-find-the-files-behind-a-study">In-class example — Find the files behind a study</a>
+  <ul class="collapse">
+  <li><a href="#questions-to-consider" id="toc-questions-to-consider" class="nav-link" data-scroll-target="#questions-to-consider">Questions to consider</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#part-ii-what-does-a-single-cell-dataset-show" id="toc-part-ii-what-does-a-single-cell-dataset-show" class="nav-link" data-scroll-target="#part-ii-what-does-a-single-cell-dataset-show">Part II — What does a single-cell dataset show?</a>
+  <ul class="collapse">
+  <li><a href="#cells-and-genes" id="toc-cells-and-genes" class="nav-link" data-scroll-target="#cells-and-genes">Cells and genes</a></li>
+  <li><a href="#embeddings" id="toc-embeddings" class="nav-link" data-scroll-target="#embeddings">Embeddings</a></li>
+  <li><a href="#clusters-and-cell-types-are-not-the-same" id="toc-clusters-and-cell-types-are-not-the-same" class="nav-link" data-scroll-target="#clusters-and-cell-types-are-not-the-same">Clusters and cell types are not the same</a></li>
+  <li><a href="#metadata-give-biological-context" id="toc-metadata-give-biological-context" class="nav-link" data-scroll-target="#metadata-give-biological-context">Metadata give biological context</a></li>
+  <li><a href="#gene-expression" id="toc-gene-expression" class="nav-link" data-scroll-target="#gene-expression">Gene expression</a></li>
+  </ul></li>
+  <li><a href="#part-iii-tools-explored-during-the-class" id="toc-part-iii-tools-explored-during-the-class" class="nav-link" data-scroll-target="#part-iii-tools-explored-during-the-class">Part III — Tools explored during the class</a>
+  <ul class="collapse">
+  <li><a href="#single-cell-expression-atlas" id="toc-single-cell-expression-atlas" class="nav-link" data-scroll-target="#single-cell-expression-atlas">1. Single Cell Expression Atlas</a>
+  <ul class="collapse">
+  <li><a href="#why-start-here" id="toc-why-start-here" class="nav-link" data-scroll-target="#why-start-here">Why start here?</a></li>
+  <li><a href="#guided-exploration" id="toc-guided-exploration" class="nav-link" data-scroll-target="#guided-exploration">Guided exploration</a></li>
+  <li><a href="#interpretation-questions" id="toc-interpretation-questions" class="nav-link" data-scroll-target="#interpretation-questions">Interpretation questions</a></li>
+  </ul></li>
+  <li><a href="#cz-cellxgene-discover" id="toc-cz-cellxgene-discover" class="nav-link" data-scroll-target="#cz-cellxgene-discover">2. CZ CELLxGENE Discover</a>
+  <ul class="collapse">
+  <li><a href="#what-can-we-explore" id="toc-what-can-we-explore" class="nav-link" data-scroll-target="#what-can-we-explore">What can we explore?</a></li>
+  <li><a href="#guided-exploration-1" id="toc-guided-exploration-1" class="nav-link" data-scroll-target="#guided-exploration-1">Guided exploration</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#part-iv-resources-to-explore-at-home" id="toc-part-iv-resources-to-explore-at-home" class="nav-link" data-scroll-target="#part-iv-resources-to-explore-at-home">Part IV — Resources to explore at home</a>
+  <ul class="collapse">
+  <li><a href="#explore-published-datasets" id="toc-explore-published-datasets" class="nav-link" data-scroll-target="#explore-published-datasets">Explore published datasets</a>
+  <ul class="collapse">
+  <li><a href="#broad-institute-single-cell-portal" id="toc-broad-institute-single-cell-portal" class="nav-link" data-scroll-target="#broad-institute-single-cell-portal">Broad Institute Single Cell Portal</a></li>
+  <li><a href="#human-cell-atlas-data-portal" id="toc-human-cell-atlas-data-portal" class="nav-link" data-scroll-target="#human-cell-atlas-data-portal">Human Cell Atlas Data Portal</a></li>
+  </ul></li>
+  <li><a href="#explore-genes-and-tissues" id="toc-explore-genes-and-tissues" class="nav-link" data-scroll-target="#explore-genes-and-tissues">Explore genes and tissues</a>
+  <ul class="collapse">
+  <li><a href="#human-protein-atlas-single-cell-resource" id="toc-human-protein-atlas-single-cell-resource" class="nav-link" data-scroll-target="#human-protein-atlas-single-cell-resource">Human Protein Atlas — Single Cell Resource</a></li>
+  </ul></li>
+  <li><a href="#investigate-cell-identities" id="toc-investigate-cell-identities" class="nav-link" data-scroll-target="#investigate-cell-identities">Investigate cell identities</a>
+  <ul class="collapse">
+  <li><a href="#cell-annotation-platform" id="toc-cell-annotation-platform" class="nav-link" data-scroll-target="#cell-annotation-platform">Cell Annotation Platform</a></li>
+  <li><a href="#panglaodb" id="toc-panglaodb" class="nav-link" data-scroll-target="#panglaodb">PanglaoDB</a></li>
+  <li><a href="#celltypist" id="toc-celltypist" class="nav-link" data-scroll-target="#celltypist">CellTypist</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#optional-take-home-activity" id="toc-optional-take-home-activity" class="nav-link" data-scroll-target="#optional-take-home-activity">Optional take-home activity</a></li>
+  <li><a href="#quick-guide-which-resource-should-i-use" id="toc-quick-guide-which-resource-should-i-use" class="nav-link" data-scroll-target="#quick-guide-which-resource-should-i-use">Quick guide — Which resource should I use?</a></li>
+  <li><a href="#take-home-messages" id="toc-take-home-messages" class="nav-link" data-scroll-target="#take-home-messages">Take-home messages</a></li>
+  <li><a href="#additional-links" id="toc-additional-links" class="nav-link" data-scroll-target="#additional-links">Additional links</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -154,8 +214,436 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="welcome" class="level1">
+<h1>Welcome</h1>
+<p>Single-cell datasets may contain thousands—or even millions—of individual cellular profiles. Complete analyses often require R or Python, but interactive websites allow us to explore many biological questions without writing code.</p>
+<p>In this activity, we will learn where single-cell data are stored, what an interactive dataset shows, and how to explore cells, genes, tissues, and experimental conditions using online resources.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>During the class, we will explore only a few representative platforms. Additional resources are provided at the end for self-paced exploration.</p>
+</div>
+</div>
+</section>
+<section id="learning-objectives" class="level1">
+<h1>Learning objectives</h1>
+<p>By the end of this activity, you should be able to:</p>
+<ul>
+<li>Distinguish raw sequencing files from processed single-cell data.</li>
+<li>Find public single-cell studies and their associated files.</li>
+<li>Interpret cells, clusters, metadata, and gene expression in an interactive portal.</li>
+<li>Use Single Cell Expression Atlas and CZ CELLxGENE Discover to investigate a biological question.</li>
+<li>Recognize other useful resources for independent exploration.</li>
+</ul>
+</section>
+<section id="part-i-where-can-we-find-single-cell-data" class="level1">
+<h1>Part I — Where can we find single-cell data?</h1>
+<section id="from-sequencing-reads-to-an-interactive-atlas" class="level2">
+<h2 class="anchored" data-anchor-id="from-sequencing-reads-to-an-interactive-atlas">From sequencing reads to an interactive atlas</h2>
+<p>A single-cell RNA-seq study may provide data at several processing levels:</p>
+<p><strong>FASTQ files → Feature–barcode count matrix → Processed single-cell object → Interactive visualization</strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Data level</th>
+<th>Common formats</th>
+<th>What it contains</th>
+<th>Typical use</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Raw sequencing data</td>
+<td><code>.fastq.gz</code></td>
+<td>Sequencing reads and quality scores</td>
+<td>Reprocessing from the beginning</td>
+</tr>
+<tr class="even">
+<td>Count matrix</td>
+<td><code>.h5</code>, <code>.mtx</code>, <code>.tsv</code></td>
+<td>Gene counts for each cellular barcode</td>
+<td>Starting an R or Python workflow</td>
+</tr>
+<tr class="odd">
+<td>Processed object</td>
+<td><code>.h5ad</code>, <code>.rds</code>, <code>.h5Seurat</code>, <code>.loom</code></td>
+<td>Counts, metadata, embeddings, clusters, and annotations</td>
+<td>Reusing an existing analysis</td>
+</tr>
+<tr class="even">
+<td>Interactive portal</td>
+<td>Web interface</td>
+<td>Selected processed results</td>
+<td>Rapid exploration without coding</td>
+</tr>
+</tbody>
+</table>
+<p>In many 10x Genomics studies, Cell Ranger processes FASTQ files and generates a feature–barcode count matrix. In Class 2, we will see how these matrices can be analyzed using R or Python.</p>
+</section>
+<section id="repositories-serve-different-purposes" class="level2">
+<h2 class="anchored" data-anchor-id="repositories-serve-different-purposes">Repositories serve different purposes</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Resource</th>
+<th>What can we find?</th>
+<th>Typical accessions</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a href="https://www.ncbi.nlm.nih.gov/geo/">GEO</a></td>
+<td>Study descriptions, metadata, processed files, and links to raw data</td>
+<td><code>GSE</code>, <code>GSM</code></td>
+</tr>
+<tr class="even">
+<td><a href="https://www.ncbi.nlm.nih.gov/sra">SRA</a></td>
+<td>Raw high-throughput sequencing data</td>
+<td><code>SRP</code>, <code>SRS</code>, <code>SRR</code></td>
+</tr>
+<tr class="odd">
+<td><a href="https://www.ebi.ac.uk/arrayexpress/">ArrayExpress/BioStudies</a></td>
+<td>Study metadata, protocols, and processed files</td>
+<td><code>E-MTAB</code></td>
+</tr>
+<tr class="even">
+<td><a href="https://www.ebi.ac.uk/ena/browser/home">ENA</a></td>
+<td>Raw nucleotide sequencing data</td>
+<td>Study, sample, experiment, and run accessions</td>
+</tr>
+<tr class="odd">
+<td><a href="https://data.humancellatlas.org/">Human Cell Atlas Data Portal</a></td>
+<td>Human atlas datasets and associated files</td>
+<td>Project-specific identifiers</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A repository is not necessarily an interactive analysis tool. GEO and ArrayExpress/BioStudies organize studies and files, while SRA and ENA primarily store raw sequencing data.</p>
+</div>
+</div>
+</section>
+<section id="in-class-example-find-the-files-behind-a-study" class="level2">
+<h2 class="anchored" data-anchor-id="in-class-example-find-the-files-behind-a-study">In-class example — Find the files behind a study</h2>
+<p>We will open one study relevant to the course and identify:</p>
+<ol type="1">
+<li>The study accession and biological question.</li>
+<li>The number and type of samples.</li>
+<li>The available metadata.</li>
+<li>The processed expression files.</li>
+<li>The link to the raw sequencing reads.</li>
+</ol>
+<section id="questions-to-consider" class="level3">
+<h3 class="anchored" data-anchor-id="questions-to-consider">Questions to consider</h3>
+<ul>
+<li>Are FASTQ files available?</li>
+<li>Is a count matrix available in <code>.h5</code> or <code>.mtx</code> format?</li>
+<li>Are cell annotations and sample metadata provided?</li>
+<li>Can we explore the results immediately, or must the data be processed first?</li>
+</ul>
+</section>
+</section>
+</section>
+<section id="part-ii-what-does-a-single-cell-dataset-show" class="level1">
+<h1>Part II — What does a single-cell dataset show?</h1>
+<section id="cells-and-genes" class="level2">
+<h2 class="anchored" data-anchor-id="cells-and-genes">Cells and genes</h2>
+<p>A single-cell expression matrix contains:</p>
+<ul>
+<li><strong>Rows:</strong> genes or molecular features.</li>
+<li><strong>Columns:</strong> individual cells or cellular barcodes.</li>
+<li><strong>Values:</strong> the observed expression of each gene in each cell.</li>
+</ul>
+<p>Unlike bulk RNA-seq, single-cell RNA-seq can reveal heterogeneous populations and cellular states within the same sample.</p>
+</section>
+<section id="embeddings" class="level2">
+<h2 class="anchored" data-anchor-id="embeddings">Embeddings</h2>
+<p>UMAP and t-SNE represent high-dimensional expression profiles in two dimensions. Each point usually represents one cell. Cells positioned close together tend to have similar expression profiles. However:</p>
+<ul>
+<li>The axes do not represent individual genes.</li>
+<li>Visual separation alone does not prove that two groups are different cell types.</li>
+<li>Cluster shape, size, and distance are influenced by analytical parameters.</li>
+</ul>
+</section>
+<section id="clusters-and-cell-types-are-not-the-same" class="level2">
+<h2 class="anchored" data-anchor-id="clusters-and-cell-types-are-not-the-same">Clusters and cell types are not the same</h2>
+<p>A <strong>cluster</strong> is a computational group of cells with similar expression profiles. A <strong>cell-type label</strong> is a biological interpretation supported by marker genes, reference data, and biological context.</p>
+</section>
+<section id="metadata-give-biological-context" class="level2">
+<h2 class="anchored" data-anchor-id="metadata-give-biological-context">Metadata give biological context</h2>
+<p>Cells may be colored or grouped by cell type, cluster, tissue, donor, disease, treatment, age, sex, developmental stage, or sequencing technology.</p>
+</section>
+<section id="gene-expression" class="level2">
+<h2 class="anchored" data-anchor-id="gene-expression">Gene expression</h2>
+<p>Interactive portals commonly display expression using color intensity on an embedding, violin plots, dot plots, or summaries across cell types and tissues.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Start with a well-known marker: <strong>CD3D</strong> for T cells, <strong>MS4A1</strong> for B cells, <strong>NKG7</strong> for cytotoxic lymphocytes, or <strong>LST1</strong> for myeloid cells. Then examine whether the expression pattern agrees with the published labels.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="part-iii-tools-explored-during-the-class" class="level1">
+<h1>Part III — Tools explored during the class</h1>
+<section id="single-cell-expression-atlas" class="level2">
+<h2 class="anchored" data-anchor-id="single-cell-expression-atlas">1. Single Cell Expression Atlas</h2>
+<p><a href="https://www.ebi.ac.uk/gxa/sc/home">Open Single Cell Expression Atlas</a></p>
+<p>The EMBL-EBI Single Cell Expression Atlas is an open resource for exploring consistently processed single-cell gene-expression studies across multiple species.</p>
+<section id="why-start-here" class="level3">
+<h3 class="anchored" data-anchor-id="why-start-here">Why start here?</h3>
+<ul>
+<li>Search by species, tissue, disease, or experimental condition.</li>
+<li>Explore data from animals, plants, fungi, and protists.</li>
+<li>Read the biological and experimental description of a study.</li>
+<li>Visualize cell clusters and gene-expression patterns.</li>
+<li>Download processed results.</li>
+</ul>
+</section>
+<section id="guided-exploration" class="level3">
+<h3 class="anchored" data-anchor-id="guided-exploration">Guided exploration</h3>
+<ol type="1">
+<li>Select an organism or biological topic.</li>
+<li>Open one experiment.</li>
+<li>Identify the tissue, experimental condition, technology, and number of cells.</li>
+<li>Inspect the embedding and available labels.</li>
+<li>Search for one marker gene.</li>
+<li>Compare its expression among cell populations.</li>
+</ol>
+</section>
+<section id="interpretation-questions" class="level3">
+<h3 class="anchored" data-anchor-id="interpretation-questions">Interpretation questions</h3>
+<ul>
+<li>What does each point represent?</li>
+<li>What variable is used to color the cells?</li>
+<li>Is the selected gene restricted to one population or broadly expressed?</li>
+<li>Do the labels agree with the expression pattern?</li>
+<li>Which metadata would be needed to compare biological groups?</li>
+</ul>
+</section>
+</section>
+<section id="cz-cellxgene-discover" class="level2">
+<h2 class="anchored" data-anchor-id="cz-cellxgene-discover">2. CZ CELLxGENE Discover</h2>
+<p><a href="https://cellxgene.cziscience.com/">Open CZ CELLxGENE Discover</a></p>
+<p>CZ CELLxGENE Discover provides curated and standardized single-cell datasets that can be searched, downloaded, and explored through an interactive no-code interface.</p>
+<section id="what-can-we-explore" class="level3">
+<h3 class="anchored" data-anchor-id="what-can-we-explore">What can we explore?</h3>
+<ul>
+<li>Published embeddings and cell annotations.</li>
+<li>Gene expression across cell types and tissues.</li>
+<li>Metadata such as disease, donor, assay, and tissue.</li>
+<li>Selected groups of cells and related datasets within a collection.</li>
+<li>Differential-expression summaries when supported by the selected interface.</li>
+</ul>
+</section>
+<section id="guided-exploration-1" class="level3">
+<h3 class="anchored" data-anchor-id="guided-exploration-1">Guided exploration</h3>
+<p>Choose one dataset and formulate a simple biological question, for example:</p>
+<blockquote class="blockquote">
+<p>Which immune cell populations express <strong>IFITM3</strong> in this tissue?</p>
+</blockquote>
+<p>Then:</p>
+<ol type="1">
+<li>Color the embedding by cell type.</li>
+<li>Inspect how many cell populations are represented.</li>
+<li>Search for the gene of interest.</li>
+<li>Identify the populations with the strongest expression.</li>
+<li>Change the metadata variable to tissue, donor, or disease when available.</li>
+<li>Write one biological observation and one limitation.</li>
+</ol>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>An interactive visualization supports exploration and hypothesis generation. It does not automatically control for donor effects, batch effects, unequal sample sizes, or other sources of variation.</p>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="part-iv-resources-to-explore-at-home" class="level1">
+<h1>Part IV — Resources to explore at home</h1>
+<p>The following resources extend the concepts introduced during class. They will not all be demonstrated live.</p>
+<section id="explore-published-datasets" class="level2">
+<h2 class="anchored" data-anchor-id="explore-published-datasets">Explore published datasets</h2>
+<section id="broad-institute-single-cell-portal" class="level3">
+<h3 class="anchored" data-anchor-id="broad-institute-single-cell-portal">Broad Institute Single Cell Portal</h3>
+<p><a href="https://singlecell.broadinstitute.org/">Open the Broad Institute Single Cell Portal</a></p>
+<p>Use it to search publication-associated studies and inspect embeddings, annotations, gene expression, metadata, and available files.</p>
+</section>
+<section id="human-cell-atlas-data-portal" class="level3">
+<h3 class="anchored" data-anchor-id="human-cell-atlas-data-portal">Human Cell Atlas Data Portal</h3>
+<p><a href="https://data.humancellatlas.org/">Open the Human Cell Atlas Data Portal</a></p>
+<p>Use it to discover large human reference atlases and community-generated datasets.</p>
+</section>
+</section>
+<section id="explore-genes-and-tissues" class="level2">
+<h2 class="anchored" data-anchor-id="explore-genes-and-tissues">Explore genes and tissues</h2>
+<section id="human-protein-atlas-single-cell-resource" class="level3">
+<h3 class="anchored" data-anchor-id="human-protein-atlas-single-cell-resource">Human Protein Atlas — Single Cell Resource</h3>
+<p><a href="https://www.proteinatlas.org/humanproteome/single+cell">Open the Human Protein Atlas Single Cell Resource</a></p>
+<p>Use it when your starting point is a gene. Explore its RNA expression across human tissues and annotated cell types and connect single-cell expression with tissue and protein information.</p>
+</section>
+</section>
+<section id="investigate-cell-identities" class="level2">
+<h2 class="anchored" data-anchor-id="investigate-cell-identities">Investigate cell identities</h2>
+<section id="cell-annotation-platform" class="level3">
+<h3 class="anchored" data-anchor-id="cell-annotation-platform">Cell Annotation Platform</h3>
+<p><a href="https://celltype.info/">Open the Cell Annotation Platform</a></p>
+<p>Use it to inspect, review, and compare expert cell annotations across single-cell atlases.</p>
+</section>
+<section id="panglaodb" class="level3">
+<h3 class="anchored" data-anchor-id="panglaodb">PanglaoDB</h3>
+<p><a href="https://panglaodb.se/">Open PanglaoDB</a></p>
+<p>Use it to search for candidate marker genes, cell types, tissues, and single-cell studies. Marker lists must always be evaluated in the appropriate biological context.</p>
+</section>
+<section id="celltypist" class="level3">
+<h3 class="anchored" data-anchor-id="celltypist">CellTypist</h3>
+<p><a href="https://www.celltypist.org/">Open CellTypist</a></p>
+<p>CellTypist provides curated reference models and an automated framework for preliminary cell-type annotation, with a strong emphasis on immune populations.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Automated labels are hypotheses, not final results. Validate predictions using marker expression, tissue context, reference relevance, and biological knowledge.</p>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="optional-take-home-activity" class="level1">
+<h1>Optional take-home activity</h1>
+<p>Choose a single-cell dataset related to your research interests.</p>
+<ol type="1">
+<li>Find the study in GEO, ArrayExpress/BioStudies, or the Human Cell Atlas Data Portal.</li>
+<li>Determine whether raw or processed files are available.</li>
+<li>Look for the same or a related study in Single Cell Expression Atlas, CZ CELLxGENE Discover, or the Broad Single Cell Portal.</li>
+<li>Inspect the embedding and available metadata.</li>
+<li>Select one gene and examine its expression across cell populations.</li>
+<li>Use the Human Protein Atlas, Cell Annotation Platform, or PanglaoDB to investigate the expected pattern.</li>
+<li>Record one observation, one limitation, and one question that would require R or Python.</li>
+</ol>
+</section>
+<section id="quick-guide-which-resource-should-i-use" class="level1">
+<h1>Quick guide — Which resource should I use?</h1>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>If you want to…</th>
+<th>Start with…</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Download raw sequencing reads</td>
+<td>SRA or ENA</td>
+</tr>
+<tr class="even">
+<td>Find files associated with a publication</td>
+<td>GEO or ArrayExpress/BioStudies</td>
+</tr>
+<tr class="odd">
+<td>Find large human atlas projects</td>
+<td>Human Cell Atlas Data Portal</td>
+</tr>
+<tr class="even">
+<td>Explore studies from multiple organisms</td>
+<td>Single Cell Expression Atlas</td>
+</tr>
+<tr class="odd">
+<td>Explore standardized single-cell datasets</td>
+<td>CZ CELLxGENE Discover</td>
+</tr>
+<tr class="even">
+<td>Explore publication-associated datasets</td>
+<td>Broad Single Cell Portal</td>
+</tr>
+<tr class="odd">
+<td>Investigate one gene across human tissues</td>
+<td>Human Protein Atlas</td>
+</tr>
+<tr class="even">
+<td>Compare cell labels and marker evidence</td>
+<td>Cell Annotation Platform or PanglaoDB</td>
+</tr>
+<tr class="odd">
+<td>Obtain a preliminary automated annotation</td>
+<td>CellTypist</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="take-home-messages" class="level1">
+<h1>Take-home messages</h1>
+<ol type="1">
+<li>Public single-cell data exist at different processing levels, from FASTQ reads to interactive atlases.</li>
+<li>Repositories help us find data; interactive portals help us explore processed results.</li>
+<li>Single Cell Expression Atlas and CZ CELLxGENE Discover provide accessible starting points for no-code exploration.</li>
+<li>Metadata and biological context are essential for interpreting cells, clusters, and gene expression.</li>
+<li>Interactive analyses are valuable for exploration but do not replace reproducible statistical analysis.</li>
+<li>Questions requiring custom preprocessing, integration, or formal comparisons generally require R or Python.</li>
+</ol>
+</section>
+<section id="additional-links" class="level1">
+<h1>Additional links</h1>
+<ul>
+<li><a href="https://www.ebi.ac.uk/gxa/sc/home">Single Cell Expression Atlas</a></li>
+<li><a href="https://cellxgene.cziscience.com/">CZ CELLxGENE Discover</a></li>
+<li><a href="https://singlecell.broadinstitute.org/">Broad Institute Single Cell Portal</a></li>
+<li><a href="https://data.humancellatlas.org/">Human Cell Atlas Data Portal</a></li>
+<li><a href="https://www.proteinatlas.org/humanproteome/single+cell">Human Protein Atlas — Single Cell Resource</a></li>
+<li><a href="https://celltype.info/">Cell Annotation Platform</a></li>
+<li><a href="https://panglaodb.se/">PanglaoDB</a></li>
+<li><a href="https://www.celltypist.org/">CellTypist</a></li>
+</ul>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

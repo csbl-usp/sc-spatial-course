@@ -1,5 +1,103 @@
 [
   {
+    "objectID": "classes/class-01.html",
+    "href": "classes/class-01.html",
+    "title": "Class 1 — User-Friendly Tools for Single-Cell and Spatial Transcriptomics",
+    "section": "",
+    "text": "Single-cell datasets may contain thousands—or even millions—of individual cellular profiles. Complete analyses often require R or Python, but interactive websites allow us to explore many biological questions without writing code.\nIn this activity, we will learn where single-cell data are stored, what an interactive dataset shows, and how to explore cells, genes, tissues, and experimental conditions using online resources.\n\n\n\n\n\n\nNote\n\n\n\nDuring the class, we will explore only a few representative platforms. Additional resources are provided at the end for self-paced exploration."
+  },
+  {
+    "objectID": "classes/class-01.html#from-sequencing-reads-to-an-interactive-atlas",
+    "href": "classes/class-01.html#from-sequencing-reads-to-an-interactive-atlas",
+    "title": "Class 1 — User-Friendly Tools for Single-Cell and Spatial Transcriptomics",
+    "section": "From sequencing reads to an interactive atlas",
+    "text": "From sequencing reads to an interactive atlas\nA single-cell RNA-seq study may provide data at several processing levels:\nFASTQ files → Feature–barcode count matrix → Processed single-cell object → Interactive visualization\n\n\n\n\n\n\n\n\n\nData level\nCommon formats\nWhat it contains\nTypical use\n\n\n\n\nRaw sequencing data\n.fastq.gz\nSequencing reads and quality scores\nReprocessing from the beginning\n\n\nCount matrix\n.h5, .mtx, .tsv\nGene counts for each cellular barcode\nStarting an R or Python workflow\n\n\nProcessed object\n.h5ad, .rds, .h5Seurat, .loom\nCounts, metadata, embeddings, clusters, and annotations\nReusing an existing analysis\n\n\nInteractive portal\nWeb interface\nSelected processed results\nRapid exploration without coding\n\n\n\nIn many 10x Genomics studies, Cell Ranger processes FASTQ files and generates a feature–barcode count matrix. In Class 2, we will see how these matrices can be analyzed using R or Python."
+  },
+  {
+    "objectID": "classes/class-01.html#repositories-serve-different-purposes",
+    "href": "classes/class-01.html#repositories-serve-different-purposes",
+    "title": "Class 1 — User-Friendly Tools for Single-Cell and Spatial Transcriptomics",
+    "section": "Repositories serve different purposes",
+    "text": "Repositories serve different purposes\n\n\n\nResource\nWhat can we find?\nTypical accessions\n\n\n\n\nGEO\nStudy descriptions, metadata, processed files, and links to raw data\nGSE, GSM\n\n\nSRA\nRaw high-throughput sequencing data\nSRP, SRS, SRR\n\n\nArrayExpress/BioStudies\nStudy metadata, protocols, and processed files\nE-MTAB\n\n\nENA\nRaw nucleotide sequencing data\nStudy, sample, experiment, and run accessions\n\n\nHuman Cell Atlas Data Portal\nHuman atlas datasets and associated files\nProject-specific identifiers\n\n\n\n\n\n\n\n\n\nImportant\n\n\n\nA repository is not necessarily an interactive analysis tool. GEO and ArrayExpress/BioStudies organize studies and files, while SRA and ENA primarily store raw sequencing data."
+  },
+  {
+    "objectID": "classes/class-01.html#in-class-example-find-the-files-behind-a-study",
+    "href": "classes/class-01.html#in-class-example-find-the-files-behind-a-study",
+    "title": "Class 1 — User-Friendly Tools for Single-Cell and Spatial Transcriptomics",
+    "section": "In-class example — Find the files behind a study",
+    "text": "In-class example — Find the files behind a study\nWe will open one study relevant to the course and identify:\n\nThe study accession and biological question.\nThe number and type of samples.\nThe available metadata.\nThe processed expression files.\nThe link to the raw sequencing reads.\n\n\nQuestions to consider\n\nAre FASTQ files available?\nIs a count matrix available in .h5 or .mtx format?\nAre cell annotations and sample metadata provided?\nCan we explore the results immediately, or must the data be processed first?"
+  },
+  {
+    "objectID": "classes/class-01.html#cells-and-genes",
+    "href": "classes/class-01.html#cells-and-genes",
+    "title": "Class 1 — User-Friendly Tools for Single-Cell and Spatial Transcriptomics",
+    "section": "Cells and genes",
+    "text": "Cells and genes\nA single-cell expression matrix contains:\n\nRows: genes or molecular features.\nColumns: individual cells or cellular barcodes.\nValues: the observed expression of each gene in each cell.\n\nUnlike bulk RNA-seq, single-cell RNA-seq can reveal heterogeneous populations and cellular states within the same sample."
+  },
+  {
+    "objectID": "classes/class-01.html#embeddings",
+    "href": "classes/class-01.html#embeddings",
+    "title": "Class 1 — User-Friendly Tools for Single-Cell and Spatial Transcriptomics",
+    "section": "Embeddings",
+    "text": "Embeddings\nUMAP and t-SNE represent high-dimensional expression profiles in two dimensions. Each point usually represents one cell. Cells positioned close together tend to have similar expression profiles. However:\n\nThe axes do not represent individual genes.\nVisual separation alone does not prove that two groups are different cell types.\nCluster shape, size, and distance are influenced by analytical parameters."
+  },
+  {
+    "objectID": "classes/class-01.html#clusters-and-cell-types-are-not-the-same",
+    "href": "classes/class-01.html#clusters-and-cell-types-are-not-the-same",
+    "title": "Class 1 — User-Friendly Tools for Single-Cell and Spatial Transcriptomics",
+    "section": "Clusters and cell types are not the same",
+    "text": "Clusters and cell types are not the same\nA cluster is a computational group of cells with similar expression profiles. A cell-type label is a biological interpretation supported by marker genes, reference data, and biological context."
+  },
+  {
+    "objectID": "classes/class-01.html#metadata-give-biological-context",
+    "href": "classes/class-01.html#metadata-give-biological-context",
+    "title": "Class 1 — User-Friendly Tools for Single-Cell and Spatial Transcriptomics",
+    "section": "Metadata give biological context",
+    "text": "Metadata give biological context\nCells may be colored or grouped by cell type, cluster, tissue, donor, disease, treatment, age, sex, developmental stage, or sequencing technology."
+  },
+  {
+    "objectID": "classes/class-01.html#gene-expression",
+    "href": "classes/class-01.html#gene-expression",
+    "title": "Class 1 — User-Friendly Tools for Single-Cell and Spatial Transcriptomics",
+    "section": "Gene expression",
+    "text": "Gene expression\nInteractive portals commonly display expression using color intensity on an embedding, violin plots, dot plots, or summaries across cell types and tissues.\n\n\n\n\n\n\nTip\n\n\n\nStart with a well-known marker: CD3D for T cells, MS4A1 for B cells, NKG7 for cytotoxic lymphocytes, or LST1 for myeloid cells. Then examine whether the expression pattern agrees with the published labels."
+  },
+  {
+    "objectID": "classes/class-01.html#single-cell-expression-atlas",
+    "href": "classes/class-01.html#single-cell-expression-atlas",
+    "title": "Class 1 — User-Friendly Tools for Single-Cell and Spatial Transcriptomics",
+    "section": "1. Single Cell Expression Atlas",
+    "text": "1. Single Cell Expression Atlas\nOpen Single Cell Expression Atlas\nThe EMBL-EBI Single Cell Expression Atlas is an open resource for exploring consistently processed single-cell gene-expression studies across multiple species.\n\nWhy start here?\n\nSearch by species, tissue, disease, or experimental condition.\nExplore data from animals, plants, fungi, and protists.\nRead the biological and experimental description of a study.\nVisualize cell clusters and gene-expression patterns.\nDownload processed results.\n\n\n\nGuided exploration\n\nSelect an organism or biological topic.\nOpen one experiment.\nIdentify the tissue, experimental condition, technology, and number of cells.\nInspect the embedding and available labels.\nSearch for one marker gene.\nCompare its expression among cell populations.\n\n\n\nInterpretation questions\n\nWhat does each point represent?\nWhat variable is used to color the cells?\nIs the selected gene restricted to one population or broadly expressed?\nDo the labels agree with the expression pattern?\nWhich metadata would be needed to compare biological groups?"
+  },
+  {
+    "objectID": "classes/class-01.html#cz-cellxgene-discover",
+    "href": "classes/class-01.html#cz-cellxgene-discover",
+    "title": "Class 1 — User-Friendly Tools for Single-Cell and Spatial Transcriptomics",
+    "section": "2. CZ CELLxGENE Discover",
+    "text": "2. CZ CELLxGENE Discover\nOpen CZ CELLxGENE Discover\nCZ CELLxGENE Discover provides curated and standardized single-cell datasets that can be searched, downloaded, and explored through an interactive no-code interface.\n\nWhat can we explore?\n\nPublished embeddings and cell annotations.\nGene expression across cell types and tissues.\nMetadata such as disease, donor, assay, and tissue.\nSelected groups of cells and related datasets within a collection.\nDifferential-expression summaries when supported by the selected interface.\n\n\n\nGuided exploration\nChoose one dataset and formulate a simple biological question, for example:\n\nWhich immune cell populations express IFITM3 in this tissue?\n\nThen:\n\nColor the embedding by cell type.\nInspect how many cell populations are represented.\nSearch for the gene of interest.\nIdentify the populations with the strongest expression.\nChange the metadata variable to tissue, donor, or disease when available.\nWrite one biological observation and one limitation.\n\n\n\n\n\n\n\nWarning\n\n\n\nAn interactive visualization supports exploration and hypothesis generation. It does not automatically control for donor effects, batch effects, unequal sample sizes, or other sources of variation."
+  },
+  {
+    "objectID": "classes/class-01.html#explore-published-datasets",
+    "href": "classes/class-01.html#explore-published-datasets",
+    "title": "Class 1 — User-Friendly Tools for Single-Cell and Spatial Transcriptomics",
+    "section": "Explore published datasets",
+    "text": "Explore published datasets\n\nBroad Institute Single Cell Portal\nOpen the Broad Institute Single Cell Portal\nUse it to search publication-associated studies and inspect embeddings, annotations, gene expression, metadata, and available files.\n\n\nHuman Cell Atlas Data Portal\nOpen the Human Cell Atlas Data Portal\nUse it to discover large human reference atlases and community-generated datasets."
+  },
+  {
+    "objectID": "classes/class-01.html#explore-genes-and-tissues",
+    "href": "classes/class-01.html#explore-genes-and-tissues",
+    "title": "Class 1 — User-Friendly Tools for Single-Cell and Spatial Transcriptomics",
+    "section": "Explore genes and tissues",
+    "text": "Explore genes and tissues\n\nHuman Protein Atlas — Single Cell Resource\nOpen the Human Protein Atlas Single Cell Resource\nUse it when your starting point is a gene. Explore its RNA expression across human tissues and annotated cell types and connect single-cell expression with tissue and protein information."
+  },
+  {
+    "objectID": "classes/class-01.html#investigate-cell-identities",
+    "href": "classes/class-01.html#investigate-cell-identities",
+    "title": "Class 1 — User-Friendly Tools for Single-Cell and Spatial Transcriptomics",
+    "section": "Investigate cell identities",
+    "text": "Investigate cell identities\n\nCell Annotation Platform\nOpen the Cell Annotation Platform\nUse it to inspect, review, and compare expert cell annotations across single-cell atlases.\n\n\nPanglaoDB\nOpen PanglaoDB\nUse it to search for candidate marker genes, cell types, tissues, and single-cell studies. Marker lists must always be evaluated in the appropriate biological context.\n\n\nCellTypist\nOpen CellTypist\nCellTypist provides curated reference models and an automated framework for preliminary cell-type annotation, with a strong emphasis on immune populations.\n\n\n\n\n\n\nWarning\n\n\n\nAutomated labels are hypotheses, not final results. Validate predictions using marker expression, tissue context, reference relevance, and biological knowledge."
+  },
+  {
     "objectID": "classes/class-03.html",
     "href": "classes/class-03.html",
     "title": "Class 3 — AI-Assisted Single-Cell and Spatial Analysis",
