@@ -1,6 +1,6 @@
 ---
 title: "Welcome!"
-subtitle: "This is a companying material of the course "Single cell/Spatial transcriptomics" held @ WCI 2026 by Helder Nakaya. The material was written by Adriana Simizo, Guilherme Mira, Izabela Mamede, Marcela Ishihara and Victoria Rojas-Celis"
+subtitle: "This is a companying material of the course 'Single cell/Spatial transcriptomics' held @ WCI 2026 by Helder Nakaya. The material was written by Adriana Simizo, Guilherme Mira, Izabela Mamede, Marcela Ishihara and Victoria Rojas-Celis"
 ---
 
 # Material for the Mini Course "Single cell/Spatial Transcriptomics" held @ WCI 2026
