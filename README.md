@@ -14,13 +14,14 @@ Marcela Akemi Ishihara
 | 2 | Reproducible Single-Cell and Spatial Analysis with R and Python |
 | 3 | AI-Assisted Single-Cell and Spatial Analysis: Writing, Testing, and Improving Code |
 
-## 📁 Repository structure
-.
-├── README.md
-├── lesson1/
-├── lesson2/
-├── lesson3/
-└── docs/ <- (optional, used by GitHub Pages)
 
 All Google Colabs and associated materials are inside the folders.
+
+The Google Collabs are also available in these links:
+
+Single cell demo: https://colab.research.google.com/drive/1ZP4TGlApuwo4gI0dGox13uYtfLnzFh4u
+Spatial demo: https://colab.research.google.com/github/guilhermemira266/xenium-lymph-node-demo/blob/main/demo_xenium_lymph_node.ipynb
+
+For the Imuno-games: https://immuno.games
+
 
